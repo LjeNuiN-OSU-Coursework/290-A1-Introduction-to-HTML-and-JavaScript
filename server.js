@@ -41,12 +41,34 @@ app.get('/stock_order', (req, res) => {
     total_cost)
 });
 
-app.get('/stock_lookup', (req, res) => {
-    console.log(req.query);
+// Function to search for the highest or lowest stock from stocks.js
+function findStockByPrice(highOrLow){
+    let selectedChoice = undefined
+    for (const stock of stocks){
+        if (selectedChoice === undefined){
+            selectedChoice = stock;
+        
+    }else if(highOrLow === 'high'){
+        if(stock.price > selectedChoice.price){
+            selectedChoice = stock
+        }
+        // updates lower priced stock instead
+    } else{
+        if (stock.price < selectedChoice.price){
+            selectedChoice = stock
+        }
+    }
+}
+    return selectedChoice;
+}
+app.post('/stock_lookup', (req, res) => {
+    const stock = findStockByPrice(req.body.highOrLow)
+    const choice = req.body.highOrLow
+    console.log(req.body);
+    res.send(`${JSON.stringify(findStockByPrice(choice))}`)
 })
-
-
 // End added code
+
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}...`);
 });

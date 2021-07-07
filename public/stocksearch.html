@@ -8,24 +8,24 @@
 </head>
 <body>
     <h1>Stock Search</h1>
-    <form action='localhost:3000/stock_lookup'>
+    <form action='/stock_lookup' method="POST">
         <p>
             Find the stock with the 
-            <label for='cost'>
+            <label for="high">
 
-            <input type = 'radio' name="cost"> 
+            <input type="radio" name="highOrLow" value="high" id="high"> 
             </label>
 
             <b>highest</b> price or the one with
             the 
-            <label for='cost'>
-            <input type = 'radio' name="cost"> 
+            <label for='low'>
+            <input type="radio" name="highOrLow" value="low" id="low"> 
         </label>
 
         <b>lowest</b> price
         </p>
 
-        <button type='submit'>Submit</button>
+        <button type="submit">Submit</button>
 
     </form>
 
