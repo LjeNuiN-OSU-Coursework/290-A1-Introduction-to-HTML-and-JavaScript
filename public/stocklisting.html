@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Listing</title>
+</head>
+<body>
+    <h1>List of Stocks Available for Purchase</h1>
+
+    <table>
+        <caption></caption>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Symbol</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Microsoft</td>
+            <td>MSFT</td>
+            <td>232.04</td>
+          </tr>
+          <tr>
+            <td>Oracle</td>
+            <td>ORCL</td>
+            <td>67.08</td>
+          </tr>
+          <tr>
+            <td>Splunk</td>
+            <td>SPLK</td>
+            <td>137.55</td>
+          </tr>
+          <tr>
+            <td>Snowflake</td>
+            <td>SNOW</td>
+            <td>235.8</td>
+          </tr>
+          <tr>
+            <td>Terradata</td>
+            <td>TDC</td>
+            <td>44.98</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form action = 'http://localhost:3000/stock_order' method='GET'>
+            <p>Enter a symbol
+                <label for="stock_symbol">
+                <input type ='text' value = '' name = 'stock_symbol' required = 'required'>
+                </label>
+                
+                and a count
+
+                <label for="quantity">
+                <input type ='text' value = '' name = 'quantity' required = 'required'>
+                </label>
+
+                for stock you want to buy
+
+            </p>
+            <button type = "submit">Submit</button>
+
+      </form>
+
+    
+</body>
+</html>
