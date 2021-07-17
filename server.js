@@ -35,9 +35,9 @@ app.get('/stock_order', (req, res) => {
         };
 
     };
-    res.send('You place an order to buy '+ stock_amount +' of '
-    + stock_name +'.' + ' The price of one stock is ' +
-    stock_price + ' and the total price for this order is '+
+    res.send('You placed an order to buy '+ stock_amount +' stock of '
+    + stock_name +'.' + ' The price of one stock is ' +'$' +
+    stock_price + ' and the total price for this order is '+'$'+
     total_cost)
 });
 
@@ -62,10 +62,13 @@ function findStockByPrice(highOrLow){
     return selectedChoice;
 }
 app.post('/stock_lookup', (req, res) => {
-    const stock = findStockByPrice(req.body.highOrLow)
     const choice = req.body.highOrLow
+    const stock = findStockByPrice(choice)
+    //prints user selection to console
     console.log(req.body);
-    res.send(`${JSON.stringify(findStockByPrice(choice))}`)
+    //removed code that also works
+    //res.send(`${JSON.stringify(findStockByPrice(choice))}`)
+    res.send(stock)
 })
 // End added code
 
